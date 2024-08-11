@@ -8,6 +8,7 @@ const HomeScreen = () => {
     <div className='homeScreen'>
       <NavBar/>
       <Banner/>
+    
     </div>
   )
 }

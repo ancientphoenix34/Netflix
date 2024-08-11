@@ -28,18 +28,21 @@ return string?.lenth>n?string.substr(0,n-1)+'...':string
   return (
     <div className='banner' style={{
         backgroundSize:"cover",
-        backgroundImage:`url("https://logos-download.com/wp-content/uploads/2016/03/Netflix_Logo_2001.png")`,
+        backgroundImage:`url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
         backgroundPosition:"center center",
     }}>
 
       <div className="banner-contents">
-        <h1 className='banner-title'>Movie-name</h1>
+        <h1 className='banner-title'>
+          {movie?.title || movie?.name || movie?.original_name}
+        </h1>
         <div className="banner-buttons">
         <button className='banner-button'>Play</button>
         <button className='banner-button'>My List</button>
         </div>
         <h1 className="banner-description">
-          {truncate("Here goes banner description",150)}
+          {truncate(
+            movie.overview,150)}
         </h1>
       </div>
 
