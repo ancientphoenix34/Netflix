@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import './NavBar.css'
 import NetflixLogo from './assets/icons8-netflix-480.png'
 import AvatarLogo from './assets/avatar.png'
-
+import {  useNavigate } from "react-router-dom";
 const NavBar = () => {
   const [show,handleShow]=useState(false);
+
+  const navigate=useNavigate();
 
   const transitionNavbar=()=>{
     if(window.scrollY>=100){
@@ -27,8 +29,8 @@ return ()=>{
   return (
     <div className={`navbar ${show && "nav-black"}`}>
       <div className="nav-contents">
-      <img className='nav-logo' src={NetflixLogo} alt="" />
-      <img className='nav-avatar' src={AvatarLogo} alt="" />
+      <img onClick={()=>navigate("/")}className='nav-logo' src={NetflixLogo} alt="" />
+      <img onClick={()=>navigate("/profile")} className='nav-avatar' src={AvatarLogo} alt="" />
       </div>
     </div>
   )
